@@ -1,0 +1,25 @@
+{
+  "name": "shine-notes",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "workspaces": [
+    "client",
+    "server"
+  ],
+  "scripts": {
+    "dev": "concurrently -k \"npm run dev -w server\" \"npm run dev -w client\"",
+    "build": "npm run build -w client",
+    "test": "npm test -w server && npm test -w client",
+    "db:setup": "npm run db:setup -w server",
+    "test:mysql": "npm run test:mysql -w server"
+  },
+  "devDependencies": {
+    "concurrently": "^9.2.0"
+  },
+  "overrides": {
+    "serialize-javascript": "^7.1.4",
+    "glob": "^14.0.4",
+    "minimatch": "^11.0.5"
+  }
+}
